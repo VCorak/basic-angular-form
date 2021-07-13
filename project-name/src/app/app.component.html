@@ -3,35 +3,34 @@
 
 <div class="container">
   <h1>Friend list</h1>
+
   <form #formName="ngForm">
-    <div class="form-group">
-      <label class="firstname">First name</label> <br>
-      <input required minlength="2" maxlength="10" pattern="[a-zA-Z]*" #firstName="ngModel" type="text" [(ngModel)]="friend.firstName" name="firstname" class="form-control" [class.error]="firstName.invalid && firstName.touched">
+    <div class="mb-3">
+      <label for="exampleInputFirstName" class="form-label">First name</label>
+      <input type="text" class="form-control" id="exampleInputFirstName" required minlength="2" maxlength="10" pattern="[a-zA-Z]*" #firstName="ngModel" [(ngModel)]="friend.firstName" name="firstname" [class.error]="firstName.invalid && firstName.touched">
     </div>
-    <pre></pre>
-    <div class="form-group">
-      <label class="lastname">Last name</label> <br>
-      <input required minlength="2" maxlength="10" pattern="[a-zA-Z]*" #lastName="ngModel" type="text" [(ngModel)]="friend.lastName" name="lastname" class="form-control" [class.error]="lastName.invalid && lastName.touched">
+
+    <div class="mb-3">
+      <label for="exampleInputLastName" class="form-label">Last name</label>
+      <input type="text" class="form-control" id="exampleInputLastName" required minlength="2" maxlength="10" pattern="[a-zA-Z]*" #lastName="ngModel" [(ngModel)]="friend.lastName" name="lastname" [class.error]="lastName.invalid && lastName.touched">
     </div>
-    <pre></pre>
-    <div class="form-group">
-      <label class="email">Email</label> <br>
-      <input [email]="true" size="30" #email="ngModel" type="text" [(ngModel)]="friend.email" name="email" class="form-control" [class.error]="email.invalid && email.touched">
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [email]="true" size="30" #email="ngModel" [(ngModel)]="friend.email" name="email" [class.error]="email.invalid && email.touched">
+
     </div>
-    <pre></pre>
-    <div class="form-group">
-      <label class="phonenumber">Phone number</label> <br>
-      <input required pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" #phoneNumber="ngModel" type="tel" [(ngModel)]="friend.phoneNumber" name="phonenumber" class="form-control" [class.error]="phoneNumber.invalid && phoneNumber.touched">
+    <div class="mb-3">
+      <label for="exampleInputPhoneNumber" class="form-label">Phone number</label>
+      <input type="tel" class="form-control" id="exampleInputPhoneNumber" required pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" #phoneNumber="ngModel" [(ngModel)]="friend.phoneNumber" name="phonenumber" [class.error]="phoneNumber.invalid && phoneNumber.touched">
     </div>
-    <pre></pre>
-    <div class="form-group">
-      <label for="language">Favourite language:</label> <br>
-      <select name="language" id="language">
-        <option value="js" *ngFor="let language of languages">{{language.name}}</option>
-      </select>
-    </div>
-    <pre></pre>
-    <button class="btn btn-primary" type="submit" [disabled]="!formName.valid">Submit</button>
+
+    <select class="form-select" aria-label="Default select example" name="language" id="language">
+      <option selected>Favourite language</option>
+      <option value="js" *ngFor="let language of languages">{{language.name}}</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!formName.valid">Submit</button>
   </form>
 </div>
 
