@@ -1,0 +1,14 @@
+.container {
+  text-align: center;
+}
+
+label {
+  text-align: left;
+}
+
+.error {
+ border-color: red;
+}
+
+
+
