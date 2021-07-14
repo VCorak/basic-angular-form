@@ -12,18 +12,18 @@ export class AppComponent implements OnInit {
 
   allFriends : any;
 
-  languages: any[] = [
+  languages: any = [
   {
-    "name": "Java Script"
+    name: 'JavaScript'
   },
   {
-    "name": "PHP"
+    name: 'PHP'
   },
   {
-    "name": "C#"
+    name: 'C#'
   },
   {
-    "name": "Pyton"
+    name: 'Pyton'
   }
 ]
 
