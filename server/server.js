@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const PORT = 6969;
+const PORT = 9012;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}) );
@@ -23,10 +23,18 @@ let allFriends = [{fName: 'Coach', lName: 'Tim', email: 'tim.broos@becode.org', 
 app.get('/', function (request, response) {
     response.send('Hello from server');
 });
+// get for allFriends
+app.get('/allFriends', function (request, response ) {
+    response.send(allFriends);
+});
 
 app.post('/', function (request, response) {
     response.status(200).send({"message": "Data received"});
 });
 
+//post for allFriends
+app.post('/allFriends', function (request, response) {
+    response.status(200).send({"message": "Data received"});
+});
 
 app.listen(PORT, function () {});
