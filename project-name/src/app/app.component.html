@@ -40,11 +40,11 @@
     </div>
 
     <div class="mb-3">
+      <label  class="form-label">Favourite language</label>
     <select class="form-select" aria-label="Default select example" name="language" id="language"
             #language = "ngModel"
             required [(ngModel)]="friend.language"
             [class.error]="language.invalid && language.touched">
-      <option selected>Favourite language</option>
       <option value="js" *ngFor="let language of languages">{{language.name}} </option>
     </select>
       </div>

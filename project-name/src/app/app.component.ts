@@ -34,8 +34,8 @@ public friend = new Friend ("", "", "", "", "")
   constructor (private addFriendService : AddFriendService) {}
 
   ngOnInit() : any {
-    this.getAllFriends('http://localhost:9012/allFriends')
-    console.log(this.allFriends);
+    this.getAllFriends('http://localhost:9012/allFriends') // have to call the function with url/allFriends
+    // console.log(this.allFriends);
   }
 
   onSubmit() {
@@ -45,7 +45,7 @@ public friend = new Friend ("", "", "", "", "")
         error => console.log( 'It did not worked', error)
       )
 
-    this.getAllFriends('http://localhost:9012/allFriends');
+    this.getAllFriends('http://localhost:9012/allFriends'); // have to call the function with url/allFriends
   }
 
 
