@@ -57,3 +57,21 @@
   </form>
 </div>
 
+<div class="row my-5">
+  <div class="col-lg-3 col-md-6 col-sm-6 friend" *ngFor="let friend of allFriends">
+    <figure class="user-card orange">
+      <figcaption>
+        <h5>{{friend.firstName + " " + friend.lastName}}</h5>
+        <h6>{{friend.email}}</h6>
+        <ul class="contacts">
+          <li>
+            {{friend.phoneNumber}}
+          </li>
+        </ul>
+        <div class="clearfix">
+          <span class="badge badge-pill badge-info">{{friend.language}}</span>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</div>

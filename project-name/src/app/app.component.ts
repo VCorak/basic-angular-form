@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Friend } from "./friend";
 import { AddFriendService } from './add-friend.service';
 
@@ -7,9 +7,12 @@ import { AddFriendService } from './add-friend.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
 
-languages: any[] = [
+export class AppComponent implements OnInit {
+
+  allFriends : any;
+
+  languages: any[] = [
   {
     "name": "Java Script"
   },
@@ -24,7 +27,9 @@ languages: any[] = [
   }
 ]
 
-public friend = new Friend("", "", "", "", "")
+public friend = new Friend ("", "", "", "", "")
+
+
 
   constructor (private addFriendService : AddFriendService) {}
 
@@ -34,7 +39,25 @@ public friend = new Friend("", "", "", "", "")
         data => console.log( 'It worked', data),
         error => console.log( 'It did not worked', error)
       )
+
+    this.getAllFriends(this.addFriendService.url);
   }
+
+  ngOnInit() : any {
+    this.getAllFriends(this.addFriendService.url)
+  }
+
+  public async getAllFriends (url : string) : Promise <any> {
+    return await fetch(url, {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'}
+    }).then(response => {
+      return response.json();
+    }).then(data => (this.allFriends = data));
+  }
+
+
+
 }
 
 
