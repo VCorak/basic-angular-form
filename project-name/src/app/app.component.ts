@@ -33,6 +33,11 @@ public friend = new Friend ("", "", "", "", "")
 
   constructor (private addFriendService : AddFriendService) {}
 
+  ngOnInit() : any {
+    this.getAllFriends('http://localhost:9012/allFriends')
+    console.log(this.allFriends);
+  }
+
   onSubmit() {
     this.addFriendService.addFriend(this.friend)
       .subscribe (
@@ -40,12 +45,9 @@ public friend = new Friend ("", "", "", "", "")
         error => console.log( 'It did not worked', error)
       )
 
-    this.getAllFriends(this.addFriendService.url);
+    this.getAllFriends('http://localhost:9012/allFriends');
   }
 
-  ngOnInit() : any {
-    this.getAllFriends(this.addFriendService.url)
-  }
 
   public async getAllFriends (url : string) : Promise <any> {
     return await fetch(url, {
