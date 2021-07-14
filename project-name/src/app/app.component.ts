@@ -13,18 +13,7 @@ export class AppComponent implements OnInit {
   allFriends : any;
 
   languages: any = [
-  {
-    name: 'JavaScript'
-  },
-  {
-    name: 'PHP'
-  },
-  {
-    name: 'C#'
-  },
-  {
-    name: 'Pyton'
-  }
+ 'Pyton', 'JavaScript', 'C#', 'PHP', 'HTML'
 ]
 
 public friend = new Friend ("", "", "", "", "")
