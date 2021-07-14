@@ -1,6 +1,6 @@
 <!--{{ friend | json }}-->
 <div class="container">
-  <h1>Friend list</h1>
+  <h3 class="app-title">Friend application</h3>
 
   <form #formName="ngForm"(ngSubmit)="onSubmit()">
     <div class="mb-3">
@@ -56,14 +56,18 @@
 </div>
 
 
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-    <div class="d-flex w-100 justify-content-between" *ngFor="let element of allFriends">
-      <h5 class="mb-1">{{element.firstName}} {{element.lastName}}</h5>
-      <p class="mb-1">{{element.email}}</p>
-      <p class="mb-1">{{element.phoneNumber}}</p>
-      <small>{{element.language}}</small>
+<section class="friends-box">
+  <h3 class="list-title"> Friends list: </h3>
+  <div class="friends-flex">
+    <div class="friends-flex" *ngFor="let friend of allFriends">
+      <div class="friend">
+        <p class="name"><strong>Name: </strong> {{friend.firstName}}
+          {{friend.lastName}}
+        </p>
+        <p><strong>Email: </strong> {{friend.email}}
+        <p><strong>Phone number: </strong> {{friend.phoneNumber}}</p>
+        <p><strong>My favourite language is: </strong> {{friend.language}}</p> <br>
+      </div>
     </div>
-
-  </a>
-</div>
+  </div>
+</section>
